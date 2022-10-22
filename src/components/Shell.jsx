@@ -4,9 +4,16 @@ import { RecipeData } from "../database/recipeDatabase";
 
 const Shell = () => {
   const [showMore, setShowMore] = useState(false);
+  const [showMoreProp, setShowMoreProp] = useState({})
 
   function handleMoreClick() {
     setShowMore(!showMore);
+  }
+
+  function handleMorePropClick(key) {
+    const showDetail = showMoreProp[key]
+    const toggleKey = showDetail ? {[key]: !showDetail} : {[key]: true};
+    setShowMoreProp(showMoreProp => ({...showMoreProp, ...toggleKey}));
   }
 
   return (
@@ -26,11 +33,11 @@ const Shell = () => {
             <tr key={i}>
               <td>{item.id}</td>
               <td>
-                <Button onClick={handleMoreClick}>{item.name}</Button>
+                <Button onClick={() => handleMorePropClick(item.id)}>{item.name}</Button>
               </td>
               <td>{item.Age}</td>
               <td>{item.Speciality}</td>
-              <td>{showMore && item.recipe}</td>
+              <td>{showMoreProp[item.id] && item.recipe}</td>
             </tr>
           ))}
         </tbody>
