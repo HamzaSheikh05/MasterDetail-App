@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
 const RecipeDetails  = ({ recipe }) => {
 
-    const [recipeDetails, setRecipeDetails] = useState(recipe);
-
-    if (!recipeDetails) {
+    if (!recipe) {
         return <div>Loading...</div>
     }
 
     return (
         <div>
-            {recipeDetails && (
+            {recipe && (
                 <>
                 <ul>
-                    <li>Recipe Name: {recipeDetails.name}</li>
-                    <li>Recipe: {recipeDetails.recipe}</li>
+                    <li>Recipe Name: {recipe.name}</li>
+                    <li>Recipe: {recipe.recipe}</li>
                 </ul>
                 </>
             )}

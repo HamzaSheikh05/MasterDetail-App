@@ -5,8 +5,7 @@ import RecipeDetails from "./RecipeDetails";
 
 
 const RecipeList = () => {
-
-    const [recipes, setRecipes] = useState(RecipeData);
+    
     const [selectedRecipe, setSelectedRecipe] = useState(null);
 
     return (
@@ -17,7 +16,7 @@ const RecipeList = () => {
                     <Row >
                         <Stack gap={2} className="col-md-5 mx-auto">
                     {
-                        recipes.map(r => (                            
+                        RecipeData.map(r => (                            
                             <Button key={r.id} onClick={() => setSelectedRecipe(r)}>{r.name}</Button>
                             
                         ))}
