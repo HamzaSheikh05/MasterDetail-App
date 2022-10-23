@@ -3,12 +3,8 @@ import { Button, Table } from "react-bootstrap";
 import { RecipeData } from "../database/recipeDatabase";
 
 const Shell = () => {
-  const [showMore, setShowMore] = useState(false);
+  
   const [showMoreProp, setShowMoreProp] = useState({})
-
-  function handleMoreClick() {
-    setShowMore(!showMore);
-  }
 
   function handleMorePropClick(key) {
     const showDetail = showMoreProp[key]
